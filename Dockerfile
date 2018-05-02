@@ -8,7 +8,8 @@ ENV BAZEL_SH="C:\tools\msys64\usr\bin\bash.exe"
 #ENV BAZEL_PYTHON="C:\tools\python2\python.exe" NOTE: this is the recommended location for python, but looks like Chocolatey installs it elsewhere
 ENV BAZEL_PYTHON="C:\Python27\python.exe"
 
-COPY vc_redistx64*.exe /vc_redistx64.exe
+#COPY vc_redistx64*.exe /vc_redistx64.exe
+ADD https://aka.ms/vs/15/release/vc_redist.x64.exe /vc_redistx64.exe
 RUN C:\vc_redistx64.exe /install /quiet
 RUN del /F C:\vc_redistx64.exe
 
@@ -23,3 +24,5 @@ RUN del /F C:\vs_buildtools.exe
 #COPY vs_buildtools*.exe /vs_buildtools.exe
 #RUN C:\vs_buildtools.exe install --passive --wait --norestart --add Microsoft.VisualStudio.Workload.VCTools
 #RUN del /F C:\vs_buildtools.exe
+
+COPY test.ps1 /test.ps1
