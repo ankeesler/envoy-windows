@@ -1,1 +1,1 @@
-docker run -it envoy-windows powershell
+docker run -it --rm envoy-windows

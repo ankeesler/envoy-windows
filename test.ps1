@@ -5,3 +5,6 @@ if (Test-Path $bazel) {
   echo "FAIL: bazel.exe does NOT exist at expected location ($bazel)"
   exit 1
 }
+
+cd C:\workspace
+bazel build //main:main
