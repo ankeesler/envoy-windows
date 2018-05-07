@@ -1,8 +1,6 @@
-$bazel = "C:\ProgramData\chocolatey\bin\bazel.exe"
-if (Test-Path $bazel) {
-  echo "PASS: bazel.exe exists at expected location ($bazel)"
-} else {
-  echo "FAIL: bazel.exe does NOT exist at expected location ($bazel)"
+where.exe /Q bazel
+if ($LASTEXITCODE -ne 0) {
+  echo "ERROR: could not find bazel"
   exit 1
 }
 
